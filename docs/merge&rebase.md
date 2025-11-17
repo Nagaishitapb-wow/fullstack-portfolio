@@ -1,37 +1,52 @@
-1. Git Merge
-What it does:
-git merge combines two branches by creating a new merge commit.
-This keeps the history exactly as it happened.
 
-When to use:
-When you want to preserve full history (good for teams).
-When working with public/shared branches (like main).
-When commit history correctness is more important than cleanliness.
+# **1. Git Merge**
 
-Advantages:
-Safe — history is never changed.
-Reflects the true branching timeline.
-Better for large teams.
+### **What it does**
 
-Disadvantages:
-History can become cluttered with many merge commits.
-The graph becomes more complex.
+`git merge` **combines two branches** by creating a **new merge commit**.
+This means the history remains exactly as it happened.
 
+### **When to use**
 
-2. Git Rebase
-What it does:
-git rebase moves your entire branch to start on top of another branch.
-It rewrites commit history to make it look linear.
+* When you want to **preserve full history** (recommended for teams).
+* When working with **public/shared branches** (e.g., `main`).
+* When **historical accuracy** is more important than a tidy timeline.
 
-When to use:
-When you want clean, linear history.
-When working on local feature branches not yet pushed.
-For keeping feature branches updated in a clean way.
+### **Advantages**
 
-Advantages:
-Cleaner, linear history (no merge commits).
-Easier to read git log.
+* ✔ **Safe** — history is never rewritten.
+* ✔ Shows the **real branching timeline**.
+* ✔ Better for **large teams**.
 
-Disadvantages:
-Rewrites history → dangerous on shared branches.
-If used incorrectly, can cause conflicts or overwrite other people's work.
+### **Disadvantages**
+
+* ✘ History can become **cluttered** with many merge commits.
+* ✘ The commit graph becomes **complex**.
+
+---
+
+# **2. Git Rebase**
+
+### **What it does**
+
+`git rebase` **moves your entire branch** to start on top of another branch.
+It **rewrites commit history** to make it look like a straight line (linear).
+
+### **When to use**
+
+* When you want **clean, linear history**.
+* When working on **local feature branches** that haven’t been pushed.
+* For keeping feature branches updated **without merge commits**.
+
+### **Advantages**
+
+* ✔ **Cleaner, linear history**.
+* ✔ Easier to read `git log`.
+
+### **Disadvantages**
+
+* ✘ **Rewrites history** → dangerous on shared branches.
+* ✘ Can cause conflicts or overwrite others' work if misused.
+
+---
+
