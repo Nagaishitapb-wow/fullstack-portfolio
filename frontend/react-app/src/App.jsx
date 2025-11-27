@@ -1,4 +1,5 @@
 import AboutMe from "./AboutMe";
+import ComponentDemo from "./ComponentDemo";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         age={22} 
         hobby="Travelling" 
       />
+       <ComponentDemo /> 
     </div>
   );
 }
