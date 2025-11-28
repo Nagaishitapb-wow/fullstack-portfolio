@@ -1,12 +1,14 @@
-import AboutMe from "./AboutMe";
-import ComponentDemo from "./ComponentDemo";
-import CounterApp from "./CounterApp";
+// import AboutMe from "./AboutMe";
+// import ComponentDemo from "./ComponentDemo";
+// import CounterApp from "./CounterApp";
+import TodoList from "./components/TodoList";
+
 
 
 function App() {
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>My First React App </h1>
+      {/* <h1 style={{ textAlign: "center" }}>My First React App </h1>
 
       <AboutMe 
         name="Naga Ishita" 
@@ -14,7 +16,8 @@ function App() {
         hobby="Travelling" 
       />
        <ComponentDemo /> 
-        <CounterApp />
+        <CounterApp /> */}
+        <TodoList />
     </div>
   );
 }

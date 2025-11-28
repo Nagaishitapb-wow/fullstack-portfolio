@@ -50,9 +50,12 @@ export default function CounterApp() {
 // Inline CSS 
 const styles = {
   container: {
-    textAlign: "center",
-    marginTop: "40px",
-    fontFamily: "Arial, sans-serif",
+  minHeight: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  background: "#f2f2f2",
   },
   title: {
     fontSize: "32px",
@@ -65,6 +68,10 @@ const styles = {
     padding: "25px",
     borderRadius: "12px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+    alignItems: "center",
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
   },
   count: {
     fontSize: "48px",
