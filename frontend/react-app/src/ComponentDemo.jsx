@@ -11,7 +11,7 @@ function ComponentDemo() {
       />
 
       <Card title="Profile Card">
-        <p>Hello, I'm Ishita 👋</p>
+        <p>Hello, I'm Ishita </p>
         <Button 
           label="Say Hello" 
           type="primary"

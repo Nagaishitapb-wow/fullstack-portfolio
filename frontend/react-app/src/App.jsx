@@ -1,5 +1,7 @@
 import AboutMe from "./AboutMe";
 import ComponentDemo from "./ComponentDemo";
+import CounterApp from "./CounterApp";
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
         hobby="Travelling" 
       />
        <ComponentDemo /> 
+        <CounterApp />
     </div>
   );
 }
