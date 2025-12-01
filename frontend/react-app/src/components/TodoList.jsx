@@ -1,26 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
+import useToggle from "../hooks/useToggle";
 import "./TodoList.css";
 
 function TodoList() {
   const [task, setTask] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [loading, setLoading] = useState(true); // loading state
 
-  // Load todos from localStorage on mount
-  useEffect(() => {
-    setTimeout(() => {
-      const savedTodos = JSON.parse(localStorage.getItem("todos"));
-      if (savedTodos) {
-        setTodos(savedTodos);
-      }
-      setLoading(false); // stop loading after data loads
-    }, 1000); 
-  }, []);
+  // Custom hook replaces useState + localStorage useEffect
+  const [todos, setTodos] = useLocalStorage("todos", []);
 
-  // Save todos to localStorage 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  // For show/ hide completed todos
+  const [showCompleted, toggleShowCompleted] = useToggle(true);
 
   const addTask = () => {
     if (!task.trim()) return;
@@ -52,47 +42,49 @@ function TodoList() {
       <div className="todo-card">
         <h2>Todo List</h2>
 
-        {/* Loading state */}
-        {loading ? (
-          <p className="loading-text">Loading your tasks...</p>
+        {/* Input */}
+        <div className="input-section">
+          <input
+            type="text"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            placeholder="Enter a task..."
+          />
+          <button onClick={addTask}>Add</button>
+        </div>
+
+        {/* Show/Hide completed button */}
+        <button className="toggle-btn" onClick={toggleShowCompleted}>
+          {showCompleted ? "Hide Completed" : "Show Completed"}
+        </button>
+
+        {/* Empty state */}
+        {todos.length === 0 ? (
+          <p className="empty-text">No tasks yet. Add something!</p>
         ) : (
-          <>
-            {/* Input */}
-            <div className="input-section">
-              <input
-                type="text"
-                value={task}
-                onChange={(e) => setTask(e.target.value)}
-                placeholder="Enter a task..."
-              />
-              <button onClick={addTask}>Add</button>
-            </div>
+          <ul className="todo-list">
+            {todos
+              .filter((todo) =>
+                showCompleted ? true : !todo.completed
+              )
+              .map((todo) => (
+                <li key={todo.id} className="todo-item">
+                  <span
+                    className={todo.completed ? "completed" : ""}
+                    onClick={() => toggleTask(todo.id)}
+                  >
+                    {todo.text}
+                  </span>
 
-            {/* Empty state */}
-            {todos.length === 0 ? (
-              <p className="empty-text">No tasks yet. Add something!</p>
-            ) : (
-              <ul className="todo-list">
-                {todos.map((todo) => (
-                  <li key={todo.id} className="todo-item">
-                    <span
-                      className={todo.completed ? "completed" : ""}
-                      onClick={() => toggleTask(todo.id)}
-                    >
-                      {todo.text}
-                    </span>
-
-                    <button
-                      className="delete-btn"
-                      onClick={() => removeTask(todo.id)}
-                    >
-                      Delete
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </>
+                  <button
+                    className="delete-btn"
+                    onClick={() => removeTask(todo.id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+          </ul>
         )}
       </div>
     </div>

@@ -110,3 +110,15 @@
   margin-top: 15px;
 }
 
+.toggle-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.toggle-btn:hover {
+  background: #584ff2;
+}
