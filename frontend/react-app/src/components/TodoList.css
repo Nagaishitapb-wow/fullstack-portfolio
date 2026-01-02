@@ -1,17 +1,20 @@
-/* Full-page center */
 .todo-container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #f2f2f2;
+  gap: 20px;
+  padding: 20px;
 }
 
 /* Card */
 .todo-card {
   background: white;
   padding: 25px;
-  width: 350px;
+  width: 100%;
+  max-width: 400px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -119,6 +122,7 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
 .toggle-btn:hover {
   background: #584ff2;
 }
