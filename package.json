@@ -1,6 +1,8 @@
 {
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -8,7 +10,8 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.7.4"
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
   },
   "lint-staged": {
     "*.{js,jsx,mjs}": [
@@ -17,10 +20,9 @@
     ]
   },
   "scripts": {
-  "prepare": "husky init",
-  "lint-staged": "lint-staged",
-  "lint": "eslint .",
-  "format": "prettier --write ."
-}
-
+    "prepare": "husky init",
+    "lint-staged": "lint-staged",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  }
 }
